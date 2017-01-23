@@ -1,0 +1,122 @@
+{#<!DOCTYPE html>#}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyOne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5"/>
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="/static/images/favicon%20.ico">
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body class="boxed">
+
+<!-- Loader -->
+<div class="fh5co-loader"></div>
+
+<div id="wrap">
+
+    <div id="fh5co-page">
+        <header id="fh5co-header" role="banner">
+
+        </header>
+        <!-- Header -->
+
+
+        <div id="fh5co-intro" class="fh5co-section">
+            <div class="container">
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-8 col-md-offset-2 text-center ts-intro">
+                        <h1>One>{{ query }}</h1>
+                        <p class="fh5co-lead">搜索结果～</p>
+                    </div>
+                </div>
+
+
+                {% for c in result_list %}
+                    <div class="row row-bottom-padded-sm">
+                        <div class="col-md-6">
+                            <p><img src="{{ c.hp_img_url }}"
+                                    class="img-responsive img-bordered"></p>
+                        </div>
+                        <div class="col-md-6 padded-top">
+                            <h3>{{ c.hp_title }}</h3>
+
+                            <h4>{{ c.hp_content }}</h4>
+                            <ul class="ul_style_1">
+                                <li>{{ c.hp_author }}</li>
+                                <li>{{ c.hp_makettime }}</li>
+                                <li>点赞：{{ c.praisenum }}</li>
+                                <li>分享：{{ c.sharenum }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div>
+                    <p>
+                        {% if result_list.has_previous %}
+                            <a href="?page={{ result_list.previous_page_number }}&query={{ query }}">Previous</a>
+                        {% endif %}
+                        {# result_list.paginator.number_pages 返回总页数 #}
+                        Page {{ result_list.number }} of {{ result_list.paginator.num_pages }}.
+                        {% if result_list.has_next %}
+                            <a href="?page={{ result_list.next_page_number }}&query={{ query }}">Next</a>
+                        {% endif %}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 另一种分页显示方式 -->
+
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-down"></i></a>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>
+
